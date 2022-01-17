@@ -11,8 +11,7 @@ enum CastMemberType {
   private Integer type;
   private final static Map values = new HashMap<>();
 
-  private CastMemberType(
-      Integer type) {
+  private CastMemberType(Integer type) {
     this.type = type;
   }
 
@@ -27,8 +26,9 @@ enum CastMemberType {
   }
 
   public static Boolean valueOf(CastMemberType type) {
-    CastMemberType castMemberType = (CastMemberType) values.get(type)
-    if (castMemberType == null) return false;
+    CastMemberType castMemberType = (CastMemberType) values.get(type.type);
+    if (castMemberType == null)
+      return false;
     return true;
   }
 }
@@ -41,6 +41,11 @@ public class CastMember extends BaseEntity {
     super.setId(id);
     this.setName(name);
     this.setType(type);
+  }
+
+  public CastMember(String name) {
+    super.generateUUID();
+    this.setName(name);
   }
 
   public CastMember(String name, CastMemberType type) {
