@@ -37,9 +37,6 @@ public class CastMember extends BaseEntity {
   private String name;
   private CastMemberType type;
 
-  public CastMember() {
-  }
-
   public CastMember(UUID id, String name, CastMemberType type) {
     super.setId(id);
     this.setName(name);
